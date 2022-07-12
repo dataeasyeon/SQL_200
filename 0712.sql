@@ -191,15 +191,15 @@ SELECT ename, sal, job, hiredate, deptno
 SELECT ename, hiredate
   FROM emp
   WHERE hiredate = '81/11/17'; -- 날짜도 양쪽에 싱글 쿼테이션 마크를 감싸주어야 함
-                               -- 날짜 데이터 검색의 경우, 현재 접속한 session의 날짜 형식에 맞추어 작성해야 함
-                               -- session : 데이터베이스 유저로 로그인해서 로그아웃 할 때 까지의 한 단위
+                               -- 날짜 데이터 검색의 경우, 현재 접속한 세션(session)의 날짜 형식에 맞추어 작성해야 함
+                               -- 세션(session) : 데이터베이스 유저로 로그인해서 로그아웃 할 때 까지의 한 단위
 
--- 현재 접속한 session의 날짜 형식 조회하는 법
+-- 현재 접속한 세션(session)의 날짜 형식 조회하는 법
 SELECT *
   FROM NLS_SESSION_PARAMETERS
   WHERE PARAMETER = 'NLS_DATE_FORMAT'; -- RR/MM/DD -> 연/월/일, RR : 현재 세기를 기준으로 이전 세기를 인식, YY : 현재 세기를 인식
 
--- 현재 접속한 session의 파라미터를 변경하는 법
+-- 현재 접속한 세션(session)의 파라미터를 변경하는 법
 ALTER SESSION SET NLS_DATE_FORMAT='YY/MM/DD';
 ALTER SESSION SET NLS_DATE_FORMAT='RR/MM/DD';
 
