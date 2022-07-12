@@ -1,3 +1,5 @@
+-- 공부 시작 전 데이터 세팅
+
 alter session set nls_date_format='RR/MM/DD';
 
 drop table emp;
